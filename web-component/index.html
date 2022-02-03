@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="https://github.com/AgoraIO-Community/Web-React-UIKit/releases/download/v0.0.5/agora-uikit.js"></script>
+    <title>Agora React Web UIKit</title>
+  </head>
+  <body>
+    <h1 style="text-align: center; font-weight: bold; font-family: sans-serif;">Agora React Web UIKit</h1>
+    <agora-react-web-uikit
+      style="width: 100%; height: 100vh; display: flex;"
+      appId=''
+      channel='test'
+    />
+    <script>
+      // select web component
+      const el = document.querySelector('agora-react-web-uikit');
+      const params = new URLSearchParams(window.location.search);
+      params.forEach((value, key) => {
+        el[key] = value;
+      })
+
+      // Add event listener and subscribe to custom event
+      el.addEventListener('agoraUIKitEndcall', (e) => {
+        el.remove();
+      });
+    </script>
+  </body>
+</html>
